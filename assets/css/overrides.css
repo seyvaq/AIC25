@@ -7,3 +7,25 @@
     background-image: url(../img/AIC25-KV-05.png);
     background-size: cover;
 }
+
+html {
+    scroll-behavior: smooth;
+}
+
+.header-two {
+    position: sticky;
+    top: 0;
+}
+
+.speaker-item-img:hover {
+    transform: scale(101%);
+    transition: all 0.2s ease;
+}
+
+.speaker-item-img {
+    transition: all 0.2s ease;
+}
+
+.btn-bg-dark:hover {
+    color: white !important;
+}
