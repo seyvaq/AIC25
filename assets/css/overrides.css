@@ -1,6 +1,136 @@
+.text-start {
+    text-align: left !important;
+}
+
+.h-100 {
+    height: 100% !important;
+}
+
+/*NavBar*/
+
+.btn-rsvp {
+    background-color: #ffe037;
+    border-color: #ffe037;
+    border-radius: 5px;
+    height: 40px;
+    color: #151515;
+}
+
+/*Main Banner*/
+
 .main-slider-two {
     background-image: url(../img/AIC25-KV-05.png);
     background-size: cover;
+}
+
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center !important;
+    height: 100vh;
+    padding-bottom: 0 !important;
+}
+
+.center-container .row {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.center-container .logo-banner {
+    height: 100px;
+    width: auto;
+    justify-self: start;
+}
+
+/* Media Query for Tablets Ipads portrait mode */
+@media (max-width: 767px) {
+    .center-container .logo-banner {
+        margin-top: 15px;
+        justify-self: center;
+    }
+}
+
+/* Media Query for Tablets Ipads portrait mode */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .center-container {
+        padding: 0 50px;
+    }
+}
+
+/*S-ABOUT*/
+
+.introductionLogo {
+    height: 50px;
+    width: auto;
+}
+
+.sc-logo {
+    height: 100px;
+}
+
+/* Media Query for Tablets Ipads portrait mode */
+@media (max-width: 767px) {
+    .introductionLogo {
+        height: 20px;
+    }
+    .sc-logo {
+        height: 40px;
+    }
+}
+
+/* Media Query for Tablets Ipads portrait mode */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .introductionLogo {
+        height: 40px;
+    }
+    .sc-logo {
+        height: 80px;
+    }
+}
+
+.s-venue {
+    padding: 0 0 80px;
+}
+
+/* Media Query for Tablets Ipads portrait mode */
+@media (max-width: 1024px) {
+    .s-venue {
+        padding: 0;
+    }
+}
+
+/*s-partners*/
+.strat-partner .introductionLogo {
+    margin-right: 3rem;
+    height: 40px;
+}
+
+.strat-partner .sc-logo {
+    height: 90px;
+}
+
+/* Media Query for Tablets Ipads portrait mode */
+@media (max-width: 767px) {
+    .strat-partner .introductionLogo {
+        margin-right: 1rem;
+        height: 20px;
+    }
+
+    .strat-partner .sc-logo {
+        height: 40px;
+    }
+}
+
+/* Media Query for Tablets Ipads portrait mode */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .strat-partner .introductionLogo {
+        margin-right: 2rem;
+        height: 40px;
+    }
+
+    .strat-partner .sc-logo {
+        height: 80px;
+    }
 }
 
 .s-latest-news {
