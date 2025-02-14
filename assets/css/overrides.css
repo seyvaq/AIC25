@@ -39,7 +39,7 @@
 .center-container .logo-banner {
     height: 100px;
     width: auto;
-    justify-self: start;
+    justify-self: end;
 }
 
 /* Media Query for Tablets Ipads portrait mode */
