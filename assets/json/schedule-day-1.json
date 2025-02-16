@@ -1,17 +1,17 @@
 [
   {
     "time": "09:00-09:15",
-    "title": "Registration and Refreshments"
+    "title": "Registration and Refreshments",
     "description": "Registration and Refreshments"
   },
   {
     "time": "09:15-09:30",
-    "title": "Opening Speech"
+    "title": "Opening Speech",
     "description": "Opening Speech"
   },
   {
     "time": "09:30-10:00",
-    "title": "Keynote Session"
+    "title": "Keynote Session",
     "description": "Keynote Session"
   }
 ]
