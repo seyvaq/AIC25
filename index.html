@@ -27,6 +27,39 @@
         />
         <link rel="stylesheet" href="assets/css/style.css" />
         <link rel="stylesheet" href="assets/css/overrides.css" />
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                fetch("./assets/json/schedule-day-1.json")
+                    .then((response) => response.json())
+                    .then((data) => {
+                        const scheduleList =
+                            document.querySelector(".schedule-cover");
+                        scheduleList.innerHTML = ""; // Clear existing list
+
+                        data.forEach((item, index) => {
+                            const listItem = document.createElement("li");
+                            if (index === 0) listItem.classList.add("active"); // Make the first item active
+
+                            listItem.innerHTML = `
+                            <div class="schedule-header">
+                                <div class="schedule-time">${item.time}</div>
+                                <div class="schedule-title">${item.title}</div>
+                                <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                            </div>
+                            <div class="schedule-content">
+                                <h3 class="title">${item.title}</h3>
+                            </div>
+                        `;
+
+                            scheduleList.appendChild(listItem);
+                        });
+                    })
+                    .catch((error) =>
+                        console.error("Error loading schedule:", error),
+                    );
+            });
+        </script>
     </head>
 
     <body id="home" class="version-2" style="background-color: #fff">
@@ -372,38 +405,6 @@
             </div>
         </section>
 
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                fetch("./assets/json/schedule-day-1.json")
-                    .then((response) => response.json())
-                    .then((data) => {
-                        const scheduleList =
-                            document.querySelector(".schedule-cover");
-                        scheduleList.innerHTML = ""; // Clear existing list
-
-                        data.forEach((item, index) => {
-                            const listItem = document.createElement("li");
-                            if (index === 0) listItem.classList.add("active"); // Make the first item active
-
-                            listItem.innerHTML = `
-                            <div class="schedule-header">
-                                <div class="schedule-time">${item.time}</div>
-                                <div class="schedule-title">${item.title}</div>
-                                <i class="fa fa-chevron-left" aria-hidden="true"></i>
-                            </div>
-                            <div class="schedule-content">
-                                <h3 class="title">${item.title}</h3>
-                            </div>
-                        `;
-
-                            scheduleList.appendChild(listItem);
-                        });
-                    })
-                    .catch((error) =>
-                        console.error("Error loading schedule:", error),
-                    );
-            });
-        </script>
         <!--=============== S-SCHEDULE-EVENT END ===============-->
 
         <!--===================== S-VENUE =====================-->
