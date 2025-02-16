@@ -614,7 +614,7 @@
 
                 function loadBreakoutSessions() {
                     $(".schedule-cover").load(
-                        "./json/breakout.html",
+                        "./assets/json/breakout.html",
                         function (response, status) {
                             if (status === "error") {
                                 $(".schedule-cover").html(
@@ -627,11 +627,11 @@
 
                 // Button Click Events
                 $("#btn-day-1").on("click", function () {
-                    loadScheduleFromFile("./json/schedule-day-1.json");
+                    loadScheduleFromFile("./assets/json/schedule-day-1.json");
                 });
 
                 $("#btn-day-2").on("click", function () {
-                    loadScheduleFromFile("./json/schedule-day-2.json");
+                    loadScheduleFromFile("./assets/json/schedule-day-2.json");
                 });
 
                 $("#btn-breakout").on("click", function () {
@@ -639,7 +639,7 @@
                 });
 
                 // Load default schedule (Day 1)
-                loadScheduleFromFile("./json/schedule-day-1.json");
+                loadScheduleFromFile("./assets/json/schedule-day-1.json");
             });
         </script>
 
