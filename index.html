@@ -348,8 +348,24 @@
                     We will be updating this section with updates.
                 </p>
                 <div class="title-line">
-                    <a href="#" class="btn btn-primary btn-bg-dark">Day 1</a>
-                    <a href="#" class="btn btn-primary btn-bg-dark">Day 2</a>
+                    <a
+                        href="#"
+                        id="btn-day-1"
+                        class="btn btn-primary btn-bg-dark"
+                        >Day 1</a
+                    >
+                    <a
+                        href="#"
+                        id="btn-day-2"
+                        class="btn btn-primary btn-bg-dark"
+                        >Day 2</a
+                    >
+                    <a
+                        href="#"
+                        id="btn-breakout"
+                        class="btn btn-primary btn-bg-dark"
+                        >Breakout</a
+                    >
                 </div>
 
                 <ul class="schedule-cover">
@@ -549,36 +565,72 @@
         <!--===================== SCRIPT	=====================-->
 
         <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                fetch("./assets/json/schedule-day-1.json")
-                    .then((response) => response.json())
-                    .then((data) => {
-                        const scheduleList =
-                            document.querySelector(".schedule-cover");
-                        scheduleList.innerHTML = ""; // Clear existing list
+            $(document).ready(function () {
+                function loadScheduleFromFile(filePath) {
+                    $.getJSON(filePath, function (scheduleData) {
+                        const scheduleContainer = $(".schedule-cover");
+                        scheduleContainer.empty(); // Clear previous content
 
-                        data.forEach((item, index) => {
-                            const listItem = document.createElement("li");
-                            // if (index === 0) listItem.classList.add("active"); // Make the first item active
-
-                            listItem.innerHTML = `
-                            <div class="schedule-header">
-                                <div class="schedule-time">${item.time}</div>
-                                <div class="schedule-title">${item.title}</div>
-                                <i class="fa fa-chevron-left" aria-hidden="true"></i>
-                            </div>
-                            <div class="schedule-content">
-                                <h3 class="title">${item.title}</h3>
-                                <p class="">${item.description}</p>
-                            </div>
+                        scheduleData.forEach((session) => {
+                            const sessionHTML = `
+                            <li>
+                                <div class="schedule-header">
+                                    <div class="schedule-time">${session.time}</div>
+                                    <div class="schedule-title">${session.title}</div>
+                                    <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                                </div>
+                                <div class="schedule-content">
+                                    <h3 class="title">${session.title}</h3>
+                                    <p>${session.description}</p>
+                                </div>
+                            </li>
                         `;
-
-                            scheduleList.appendChild(listItem);
+                            scheduleContainer.append(sessionHTML);
                         });
-                    })
-                    .catch((error) =>
-                        console.error("Error loading schedule:", error),
+
+                        // Re-apply click event to new elements
+                        $(".schedule-header").on("click", function () {
+                            $(this).parents("li").toggleClass("active");
+                            $(this)
+                                .parents("li")
+                                .find(".schedule-content")
+                                .toggle("ease");
+                        });
+                    }).fail(function () {
+                        $(".schedule-cover").html(
+                            "<li>Error loading schedule.</li>",
+                        );
+                    });
+                }
+
+                function loadBreakoutSessions() {
+                    $(".schedule-cover").load(
+                        "./json/breakout.html",
+                        function (response, status) {
+                            if (status === "error") {
+                                $(".schedule-cover").html(
+                                    "<li>Error loading breakout sessions.</li>",
+                                );
+                            }
+                        },
                     );
+                }
+
+                // Button Click Events
+                $("#btn-day-1").on("click", function () {
+                    loadScheduleFromFile("./json/schedule-day-1.json");
+                });
+
+                $("#btn-day-2").on("click", function () {
+                    loadScheduleFromFile("./json/schedule-day-2.json");
+                });
+
+                $("#btn-breakout").on("click", function () {
+                    loadBreakoutSessions();
+                });
+
+                // Load default schedule (Day 1)
+                loadScheduleFromFile("./json/schedule-day-1.json");
             });
         </script>
 
