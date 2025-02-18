@@ -310,17 +310,9 @@
   // });
 
   $(document).ready(function () {
-    $(document).on("click", ".schedule-header", function (event) {
-      event.stopPropagation(); // Prevents bubbling issues
-      const listItem = $(this).closest("li");
-
-      // Close any open accordion except the clicked one
-      $(".schedule-content").not(listItem.find(".schedule-content")).slideUp();
-      $("li").not(listItem).removeClass("active");
-
-      // Toggle the clicked accordion
-      listItem.toggleClass("active");
-      listItem.find(".schedule-content").stop(true, true).slideToggle();
+    $(document).on("click", ".schedule-header", function () {
+      $(this).parents("li").toggleClass("active");
+      $(this).parents("li").find(".schedule-content").toggle("ease");
     });
   });
 
