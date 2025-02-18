@@ -584,28 +584,18 @@
 
                         scheduleData.forEach((session) => {
                             const sessionHTML = `
-                            <li>
-                                <div class="schedule-header">
-                                    <div class="schedule-time">${session.time}</div>
-                                    <div class="schedule-title">${session.title}</div>
-                                    <i class="fa fa-chevron-left" aria-hidden="true"></i>
-                                </div>
-                                <div class="schedule-content">
-                                    <h3 class="title">${session.title}</h3>
-                                    <p>${session.description}</p>
-                                </div>
-                            </li>
-                        `;
+                        <li>
+                            <div class="schedule-header">
+                                <div class="schedule-time">${session.time}</div>
+                                <div class="schedule-title">${session.title}</div>
+                                <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                            </div>
+                            <div class="schedule-content" style="display: none;">
+                                <h3 class="title">${session.title}</h3>
+                                <p>${session.description}</p>
+                            </div>
+                        </li>`;
                             scheduleContainer.append(sessionHTML);
-                        });
-
-                        // Re-apply click event to new elements
-                        $(".schedule-header").on("click", function () {
-                            $(this).parents("li").toggleClass("active");
-                            $(this)
-                                .parents("li")
-                                .find(".schedule-content")
-                                .toggle("ease");
                         });
                     }).fail(function () {
                         $(".schedule-cover").html(
@@ -626,6 +616,25 @@
                         },
                     );
                 }
+
+                // Delegate click events to dynamically loaded elements
+                $(document).on("click", ".schedule-header", function (event) {
+                    event.stopPropagation();
+                    const listItem = $(this).closest("li");
+
+                    // Close any other open items
+                    $(".schedule-content")
+                        .not(listItem.find(".schedule-content"))
+                        .slideUp();
+                    $("li").not(listItem).removeClass("active");
+
+                    // Toggle clicked item
+                    listItem.toggleClass("active");
+                    listItem
+                        .find(".schedule-content")
+                        .stop(true, true)
+                        .slideToggle();
+                });
 
                 // Button Click Events
                 $("#btn-day-1").on("click", function () {
