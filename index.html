@@ -617,9 +617,13 @@
                     );
                 }
 
+                // Remove existing event bindings before adding a new one
+                $(document).off("click", ".schedule-header");
+
                 // Delegate click events to dynamically loaded elements
                 $(document).on("click", ".schedule-header", function (event) {
-                    event.stopPropagation();
+                    event.stopPropagation(); // Prevent bubbling issues
+
                     const listItem = $(this).closest("li");
 
                     // Close any other open items
