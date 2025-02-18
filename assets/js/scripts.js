@@ -310,13 +310,17 @@
   // });
 
   $(document).ready(function () {
-    // Initially show the content of the first schedule item
-    // $(".schedule-cover li:eq(0) .schedule-content").show("ease");
+    $(document).on("click", ".schedule-header", function (event) {
+      event.stopPropagation(); // Prevents bubbling issues
+      const listItem = $(this).closest("li");
 
-    // Use event delegation to handle dynamically added elements
-    $(document).on("click", ".schedule-header", function () {
-      $(this).parents("li").toggleClass("active");
-      $(this).parents("li").find(".schedule-content").toggle("ease");
+      // Close any open accordion except the clicked one
+      $(".schedule-content").not(listItem.find(".schedule-content")).slideUp();
+      $("li").not(listItem).removeClass("active");
+
+      // Toggle the clicked accordion
+      listItem.toggleClass("active");
+      listItem.find(".schedule-content").stop(true, true).slideToggle();
     });
   });
 
