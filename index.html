@@ -617,28 +617,28 @@
                     );
                 }
 
-                // Remove existing event bindings before adding a new one
-                $(document).off("click", ".schedule-header");
+                // // Remove existing event bindings before adding a new one
+                // $(document).off("click", ".schedule-header");
 
-                // Delegate click events to dynamically loaded elements
-                $(document).on("click", ".schedule-header", function (event) {
-                    event.stopPropagation(); // Prevent bubbling issues
+                // // Delegate click events to dynamically loaded elements
+                // $(document).on("click", ".schedule-header", function (event) {
+                //     event.stopPropagation(); // Prevent bubbling issues
 
-                    const listItem = $(this).closest("li");
+                //     const listItem = $(this).closest("li");
 
-                    // Close any other open items
-                    $(".schedule-content")
-                        .not(listItem.find(".schedule-content"))
-                        .slideUp();
-                    $("li").not(listItem).removeClass("active");
+                //     // Close any other open items
+                //     $(".schedule-content")
+                //         .not(listItem.find(".schedule-content"))
+                //         .slideUp();
+                //     $("li").not(listItem).removeClass("active");
 
-                    // Toggle clicked item
-                    listItem.toggleClass("active");
-                    listItem
-                        .find(".schedule-content")
-                        .stop(true, true)
-                        .slideToggle();
-                });
+                //     // Toggle clicked item
+                //     listItem.toggleClass("active");
+                //     listItem
+                //         .find(".schedule-content")
+                //         .stop(true, true)
+                //         .slideToggle();
+                // });
 
                 // Button Click Events
                 $("#btn-day-1").on("click", function () {
