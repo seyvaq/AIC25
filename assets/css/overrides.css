@@ -68,6 +68,14 @@
     height: 100px;
 }
 
+.cgs-logo-intro {
+    height: 65px;
+}
+
+.rhb-logo-intro {
+    height: 65px;
+}
+
 /* Media Query for Tablets Ipads portrait mode */
 @media (max-width: 767px) {
     .introductionLogo {
@@ -75,6 +83,18 @@
     }
     .sc-logo {
         height: 40px;
+    }
+
+    .sc-logo-bottom {
+        height: 80px;
+    }
+
+    .cgs-logo-intro {
+        height: 25px;
+    }
+
+    .rhb-logo-intro {
+        height: 25px;
     }
 }
 
@@ -85,6 +105,13 @@
     }
     .sc-logo {
         height: 80px;
+    }
+    .cgs-logo-intro {
+        height: 50px;
+    }
+
+    .rhb-logo-intro {
+        height: 50px;
     }
 }
 
