@@ -4,11 +4,11 @@
     "title": "Registration and Refreshments",
     "description": ""
   },
-  {
-    "time": "08:45-09:15",
-    "title": "Breakfast Roundtable with Minister of Investment, Trade and Industry",
-    "description": "This exclusive roundtable brings together 10-12 mid-tier companies and NIMP Strategic Co-Investment Fund (CoSIF) Recognised Market Operators for a high-level discussion with the Minister of Investment, Trade and Industry. The session will explore investment opportunities, trade facilitation, and strategic collaboration to drive Malaysia’s industrial transformation under the New Industrial Master Plan (NIMP 2030)."
-  },
+  // {
+  //   "time": "08:45-09:15",
+  //   "title": "Breakfast Roundtable with Minister of Investment, Trade and Industry",
+  //   "description": "This exclusive roundtable brings together 10-12 mid-tier companies and NIMP Strategic Co-Investment Fund (CoSIF) Recognised Market Operators for a high-level discussion with the Minister of Investment, Trade and Industry. The session will explore investment opportunities, trade facilitation, and strategic collaboration to drive Malaysia’s industrial transformation under the New Industrial Master Plan (NIMP 2030)."
+  // },
   {
     "time": "09:15-09:25",
     "title": "Opening Remarks",
