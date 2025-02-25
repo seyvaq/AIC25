@@ -82,7 +82,7 @@
         height: 20px;
     }
     .sc-logo {
-        height: 40px;
+        height: 60px;
     }
 
     .sc-logo-bottom {
@@ -209,4 +209,8 @@ html {
     border-style: solid;
     border-width: 0.1em;
     border-color: #2ccfbb;
+}
+
+.remove-before::before {
+    content: none;
 }
