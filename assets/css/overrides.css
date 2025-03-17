@@ -214,3 +214,8 @@ html {
 .remove-before::before {
     content: none;
 }
+
+.bg-primary-box {
+    border: 2px solid #ffe037;
+    background-color: #ffe037;
+}
